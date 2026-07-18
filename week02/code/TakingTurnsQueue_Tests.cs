@@ -85,7 +85,7 @@ public class TakingTurnsQueueTests
     // Scenario: Create a queue with the following people and turns: Bob (2), Tim (Forever), Sue (3)
     // Run 10 times.
     // Expected Result: Bob, Tim, Sue, Bob, Tim, Sue, Tim, Sue, Tim, Tim
-    // Defect(s) Found: 
+    // Defect(s) Found: The code didn't have the condition to add an infinitive turn because we can not do nothing when the turns become 0. Tim never appears on the list because his turns are 0 and the conditional was if turns > 1. The second issue was how the function Enqueue do the insertion on the queue. It was inserting on the begining (as an stack) when it has to be at the last space on the queue. 
     public void TestTakingTurnsQueue_ForeverZero()
     {
         var timTurns = 0;
@@ -116,7 +116,7 @@ public class TakingTurnsQueueTests
     // Scenario: Create a queue with the following people and turns: Tim (Forever), Sue (3)
     // Run 10 times.
     // Expected Result: Tim, Sue, Tim, Sue, Tim, Sue, Tim, Tim, Tim, Tim
-    // Defect(s) Found: 
+    // Defect(s) Found: The code didn't have the condition to add an infinitive turn because we can not do nothing when the turns become 0. Tim never appears on the list because his turns are 0 and the conditional was if turns > 1. The second issue was how the function Enqueue do the insertion on the queue. It was inserting on the begining (as an stack) when it has to be at the last space on the queue. 
     public void TestTakingTurnsQueue_ForeverNegative()
     {
         var timTurns = -3;
@@ -143,7 +143,7 @@ public class TakingTurnsQueueTests
     [TestMethod]
     // Scenario: Try to get the next person from an empty queue
     // Expected Result: Exception should be thrown with appropriate error message.
-    // Defect(s) Found: 
+    // Defect(s) Found: No defect found
     public void TestTakingTurnsQueue_Empty()
     {
         var players = new TakingTurnsQueue();
